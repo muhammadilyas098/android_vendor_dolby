@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="com.dolby.daxservice">
+        <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+        <permission name="android.permission.MANAGE_USERS"/>
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+        <permission name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME"/>
+        <permission name="com.motorola.gamemode.permission.LAUNCH_GAMEMODE"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.motorola.dolby.dolbyui">
+        <permission name="android.permission.BLUETOOTH_PRIVILEGED"/>
+        <permission name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"/>
+        <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+        <permission name="com.motorola.permission.ACCESS_CHECKIN"/>
+    </privapp-permissions>
+</permissions>

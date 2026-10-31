@@ -1,0 +1,25 @@
+// Opt-in: ubah nama jadi Android.bp setelah filegroup "device_audio_effects_xml"
+// dibuat di device tree, mis. di device/<oem>/<device>/Android.bp:
+//
+//   filegroup {
+//       name: "device_audio_effects_xml",
+//       srcs: ["audio/audio_effects.xml"],
+//   }
+//
+// Lalu di device.mk: hapus PRODUCT_COPY_FILES untuk audio_effects.xml dan tambahkan
+//   PRODUCT_PACKAGES += audio_effects_dolby.xml
+
+genrule {
+    name: "audio_effects_dolby_gen",
+    srcs: [":device_audio_effects_xml"],
+    tools: ["dolby_patch_audio_effects"],
+    out: ["audio_effects.xml"],
+    cmd: "$(location dolby_patch_audio_effects) $(in) $(out)",
+}
+
+prebuilt_etc {
+    name: "audio_effects_dolby.xml",
+    src: ":audio_effects_dolby_gen",
+    filename: "audio_effects.xml",
+    soc_specific: true,
+}
